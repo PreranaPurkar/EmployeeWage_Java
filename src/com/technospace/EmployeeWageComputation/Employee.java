@@ -11,10 +11,14 @@ System.out.println("Welcome to Employee Wage Computation Program");
 		
 		int attendance ;
 		int daily_Wage=0;
+		int empType;
 		
 		final int IS_ABSENT=0;
 		final int WAGE_PER_HR=20;
-		final int FULL_DAY_HR=8;
+		final int FULL_TIME_HR=8;
+		final int PART_TIME_HR=4;
+		final int IS_PART_TIME=0;
+		
 		
 		//Use Random class for Attendance check
 		
@@ -27,11 +31,19 @@ System.out.println("Welcome to Employee Wage Computation Program");
 			System.out.println("Employee is Absent");
 		} else {
 			System.out.println("Employee is Present");
-			
+			empType=random.nextInt(2);
+			if(empType==IS_PART_TIME){
+				System.out.println("Employee is Part Time");
+				daily_Wage = WAGE_PER_HR * PART_TIME_HR;
+			}
+			else{
+				System.out.println("Employee is Full Time");
+				daily_Wage = WAGE_PER_HR * FULL_TIME_HR;
+			}
+			}
 			// Find the Daily wage of present Employee
 			
-			daily_Wage = WAGE_PER_HR * FULL_DAY_HR;
-		}
+			
 		System.out.println("Daily Wage= "+daily_Wage);
 	}
 
