@@ -13,27 +13,24 @@ System.out.println("Welcome to Employee Wage Computation Program");
 		int daily_Wage=0;
 		int empType;
 		int monthly_Wage=0;
-	
-		
-		final int IS_ABSENT=0;
-		final int WAGE_PER_HR=20;
-		final int FULL_TIME_HR=8;
-		final int PART_TIME_HR=4;
-		final int IS_PART_TIME=0;
-		final int IS_FULL_TIME=1;
+		int day=1;
+		int total_hr=0;
 		
 		
 		//Use Random class for Attendance check
 		
 		Random random=new Random();
-		for (int i=0;i<=20;i++){
-		System.out.println("Day= "+i);	
+		
+		while(day != 21 && total_hr < 100){
+		System.out.println("Day= "+day+ "     Total Hr= "+total_hr);	
+		
+		daily_Wage=0;
 		
 		attendance=random.nextInt(2);
 		
 		System.out.println("Attendance=" +attendance);
 		
-		if(attendance == IS_ABSENT) {
+		if(attendance == Constants.IS_ABSENT) {
 			System.out.println("Employee is Absent");
 			} 
 		else {
@@ -41,16 +38,15 @@ System.out.println("Welcome to Employee Wage Computation Program");
 			empType=random.nextInt(2);
 			//Use Switch case for find the employee is Full time or Part time
 			
-			
 			switch(empType){
-			case IS_PART_TIME:
+			case Constants.IS_PART_TIME:
 				System.out.println("Employee is Part Time");
-				daily_Wage = WAGE_PER_HR * PART_TIME_HR;
+				daily_Wage = Constants. WAGE_PER_HR * Constants.PART_TIME_HR;
 				break;
 				
-			case IS_FULL_TIME:
+			case Constants.IS_FULL_TIME:
 				System.out.println("Employee is Full Time");
-				daily_Wage = WAGE_PER_HR * FULL_TIME_HR;
+				daily_Wage = Constants.WAGE_PER_HR *Constants. FULL_TIME_HR;
 				break;
 			}
 					
@@ -60,7 +56,7 @@ System.out.println("Welcome to Employee Wage Computation Program");
 		
 		monthly_Wage = monthly_Wage + daily_Wage;
 		System.out.println("####################################");
-		
+		day++;
 		
 		}
 		System.out.println("Total Monhtly Wage= "+monthly_Wage);		// Find the Daily wage of present Employee
