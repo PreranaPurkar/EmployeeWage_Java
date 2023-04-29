@@ -9,13 +9,24 @@ public class Employee {
 	int monthly_Wage=0;
 	int day=1;
 	int total_hr=0;
+	int wage_per_hr;
+	int total_days;
+	int total_working_hr;
 	
 	//Use Random class for Attendance check
 	Random random=new Random();
 	//Use class method to Compute Employee Wage
 	
-	public void calculateWage(){
-		while(day != 21 && total_hr < 100){
+	public void calculateWage(String company,int wage_per_hr,int total_days,int total_working_hr){
+		this.wage_per_hr=wage_per_hr;
+		this.total_days=total_days;
+		this.total_working_hr=total_working_hr;
+		
+		System.out.println("Company Name ="+company);
+		System.out.println("Wage per Hour= "+wage_per_hr);
+		System.out.println("Monthly total Days= "+total_days);
+		System.out.println("Total Working Hr= "+total_working_hr);
+		while(day != total_days && total_hr < total_working_hr){
 			System.out.println("Day= "+day+ "     Total Hr= "+total_hr);	
 			
 			daily_Wage=0;
@@ -35,13 +46,13 @@ public class Employee {
 				switch(empType){
 				case Constants.IS_PART_TIME:
 					System.out.println("Employee is Part Time");
-					daily_Wage = Constants. WAGE_PER_HR * Constants.PART_TIME_HR;
+					daily_Wage = wage_per_hr * Constants.PART_TIME_HR;
 					total_hr=total_hr+Constants.PART_TIME_HR;
 					break;
 					
 				case Constants.IS_FULL_TIME:
 					System.out.println("Employee is Full Time");
-					daily_Wage = Constants.WAGE_PER_HR *Constants. FULL_TIME_HR;
+					daily_Wage = wage_per_hr *Constants. FULL_TIME_HR;
 					total_hr=total_hr+Constants.FULL_TIME_HR;
 					break;
 				}
@@ -64,8 +75,9 @@ public class Employee {
 		System.out.println("Welcome to Employee Wage Computation Program");
 		
 		Employee employee=new Employee();
-		employee.calculateWage();
-		
+		employee.calculateWage("TCS",22,28,125);
+		Employee employee2=new Employee();
+		employee2.calculateWage("Infosys",24,20,145);
 		}
 		
 	
