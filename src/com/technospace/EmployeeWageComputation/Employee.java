@@ -3,21 +3,18 @@ package com.technospace.EmployeeWageComputation;
 import java.util.Random;
 
 public class Employee {
+	int attendance ;
+	int daily_Wage=0;
+	int empType;
+	int monthly_Wage=0;
+	int day=1;
+	int total_hr=0;
 	
-public static void main(String[] args) {
-		
-		//Welcome message for user
-		System.out.println("Welcome to Employee Wage Computation Program");
-		
-		
-		int attendance ;
-		int daily_Wage=0;
-		int empType;
-		int monthly_Wage=0;
-		int day=1;
-		int total_hr=0;
-		//Use Random class for Attendance check
-		Random random=new Random();
+	//Use Random class for Attendance check
+	Random random=new Random();
+	//Use class method to Compute Employee Wage
+	
+	public void calculateWage(){
 		while(day != 21 && total_hr < 100){
 			System.out.println("Day= "+day+ "     Total Hr= "+total_hr);	
 			
@@ -58,9 +55,18 @@ public static void main(String[] args) {
 			day++;
 			
 			}
-		// Find the Daily wage of present Employee
-
 		System.out.println("Total Monhtly Wage= "+monthly_Wage);
+	}
+	
+	public static void main(String[] args) {
+		
+		//Welcome message for user
+		System.out.println("Welcome to Employee Wage Computation Program");
+		
+		Employee employee=new Employee();
+		employee.calculateWage();
+		
 		}
 		
+	
 	}
